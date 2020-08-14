@@ -1,0 +1,5 @@
+User-agent:  * # Applies to all!
+Disallow: /incl/ # Don't scan the includes directory.
+Disallow: /admin/ # Don't scan the administrative directory, if it exists.
+Sitemap: https://cdn.attracta.com/sitemap/4980366/0.xml
+Sitemap: https://erulment.ro/sitemap.xml

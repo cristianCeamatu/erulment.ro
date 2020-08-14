@@ -1,0 +1,57 @@
+            <div class="span13 pull-left"><!--span13-->
+            <p><br /></p>
+                        <table class="table table-condensed table-hover table-responsive produse" id="results">
+                        <thead>
+                            <tr><th colspan="5"><h1 class="center-align muted credit creditfooter"><?php echo $mesaj_rezultate; ?></h1></th></tr>                        
+                            <tr>
+                                <th class="left-align">Rulment</th>
+                                <th class="center-align">Marca</th>
+                                <th class="center-align dimensiune">Dimensiune(mm)</th>
+                                <th class="center-align">Cant.</th>
+                                <th class="center-align"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+<?php
+//$num_rezultate FROM searchQuery.inc.php
+ if ($num_rezultate) {
+    mysqli_next_result($dbc);
+    $rezultate = mysqli_query($dbc, $query);
+    while ($row = mysqli_fetch_array($rezultate, MYSQLI_ASSOC)) { ?>
+    <form action="cauta.html#cos" method="post">
+    <tr>
+        <td class="left-align"><a href="./<?php echo $row['id_produs'] ?>-rulment-<?php echo str_replace(array(' ', '/', '*'),array('-', '-', ''), $row['rulment']) . '-' . $row['marca']; ?>.html#produs"><?php echo $row['rulment']; ?></a></td>
+        <td class="center-align"><?php echo $row['marca'] ?></td>
+        <td class="center-align dimensiune"><?php echo $row['dimensiune'] ?></td>
+        <td class="center-align"><input name="cantitate" type="text" autocomplete="off" placeholder="1" maxlength="3" size="3" class="cantCart"/>
+        </td>
+        <td class="center-align">
+                    <input type="hidden" name="id_produs" value="<?php echo $row['id_produs']; ?>"/>
+                    <input type="hidden" name="adauga" value="1"/>
+                    <input type="submit" value="Adauga" class="btn btn-success buttonAdauga" /></td>
+    </tr>
+    </form>
+<?php   
+        }// END OF WHILE LOOP
+?>
+<tr class="noHover"><td colspan="5" class="center-align"><div class="centerUlInside"><ul class="pagination pagination-sm"><?php if (isset($pages)) echo $pages->display_pages(); ?></ul><div class="centerUlInside"></td></tr>
+<?php
+    } else {
+?>
+    <tr class="noHover">
+        <td class="center-align" colspan="4"><h2>Nici un rezultat. <a href="./contact">Contacteaza-ne</a> si gasim noi produsul pentru tine,<br />sau completeaza formularul si te contactam noi.</h2></td>
+    </tr>
+    <tr class="noHover">
+        <td class="center-align" colspan="4">
+            <a href="./index.html<?php if(isset($cautare)){echo "?q=$cautare&d=$dimensiuni";} ?>#formular"><button type="button" class="btn" id="formular">Formular Cerere</button></a>
+            <!--<form style="display: inline-block;" action="./finalizare_comanda.php" method="post">
+                <button type="submit" name="cerere_avansata" class="btn">Cerere Avansata</button>
+            </form>-->
+        </td>
+    </tr>
+<?php
+    }// END OF IF/ELSE $num_rezultate STATEMENT
+?>
+                        </tbody>
+                </table>
+            </div><!--/span13-->

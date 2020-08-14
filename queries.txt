@@ -1,0 +1,6 @@
+/* Get the cart contents:
+$query_cart = "SELECT lista.user_session_id, lista.id_produs, produs.nume AS rulment, marca.nume AS furnizor, CONCAT_WS(\"x\", produs.interior, produs.exterior, produs.latime) AS dimensiune, lista.cantitate AS cant
+               FROM lista 
+               INNER JOIN produs ON lista.id_produs = produs.id_produs 
+               INNER JOIN marca ON produs.id_marca = marca.id_marca WHERE user_session_id = '$uid'
+               ORDER BY rulment ASC";*/

@@ -1,0 +1,106 @@
+            <div class="span13 pull-left">
+            <table class="table table-condensed table-responsive" id="produs" style="border: none;">
+                <tbody>
+                <tr>
+                   <td class="produs">
+                        <a href="http://www.erulment.ro" title="Home" class="produs">
+                            <img src="
+                            <?php if(isset($produs['imagine']) && $produs['imagine'] != null)
+                            { echo 'theme/images/marca/' . $produs['imagine'];}
+                            else { echo 'theme/images/skfProdus.jpg'; } ?>" width="300" height="320" alt="Magazin Rulmenti Online"  />
+                        </a>
+                   </td>
+                   <td class="center-align">
+                                    <table class="center-align table-condensed table-responsive" id="tableForm" style="border: none;">
+                                        <tr>
+                                            <td class="center-align" colspan="2"><h2 style="font-size: 13px; padding-bottom: 0; margin-bottom: 0; color: #585858">Rulment seria <?php echo $produs['rulment']; ?></h2></td>
+                                        </tr>
+                                        <tr>
+                                        <td class="right-align" style="padding-right: 20px;">Denumire: </td>
+                                        <td class="left-align" style="padding-right: 20px;"><span class="muted credit"><?php echo $produs['rulment']; ?></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="right-align" id="firma" style="padding-right: 20px;">Marca: </td>
+                                            <td class="left-align" style="padding-right: 20px;"><span class="muted credit"><?php echo $produs['marca']; ?></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="right-align" style="padding-right: 20px;">Interior(d): </td>
+                                            <td class="left-align" style="padding-right: 20px;"><span class="muted credit"><?php if($produs['interior'] > 0) echo $produs['interior']; else echo '--'; ?> mm</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="right-align" style="padding-right: 20px;">Exterior(D): </td>
+                                            <td class="left-align" style="padding-right: 20px;"><span class="muted credit"><?php if($produs['exterior'] > 0) echo $produs['exterior']; else echo '--'; ?> mm</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="right-align" style="padding-right: 20px;">Latime(B): </td>
+                                            <td class="left-align" style="padding-right: 20px;"><span class="muted credit"><?php if($produs['latime'] > 0) echo $produs['latime']; else echo '--'; ?> mm</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="right-align" style="padding-right: 20px;">Greutate: </td>
+                                            <td class="left-align" style="padding-right: 20px;"><span class="muted credit"><?php echo $produs['masa']; ?> Kg</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="right-align" style="padding-right: 20px;">Disponibil: </td>
+                                            <td class="left-align" style="padding-right: 20px;"><span style="color: #3BC8F7;">In Stoc</span></td>
+                                        </tr>
+                                            <form action="" method="post" style="padding: 0px;">
+                                        <tr>
+                                        <td class="right-align" style="padding-right: 20px;">Cantitate: </td>
+                                        <td class="left-align">
+                                        <input name="cantitate" type="text" autocomplete="off" value="1" maxlength="3" size="3" class="cantCart"/>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                            <input type="hidden" name="id_produs" value="<?php echo $produs['id_produs']; ?>"/>
+                                            <input type="hidden" name="adauga" value="1"/>
+                                            <a href="./cauta.html#results"><button type="button" style="display: inline-block;" class="btn">Inapoi</button></a>
+                                            <button type="submit" style="display: inline-block;" class="btn">Adauga</button>
+                                            </td>
+                                            </form>
+                                        </tr> 
+                                        </table>
+                   </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="left-align" style="padding: 10px 12px; font-weight: normal; line-height: 18px; text-indent: 10px;">
+                        <p>Comercializam rulmentul cu seria <strong><?php echo $produs['rulment']; ?></strong> fabricat de <strong><?php echo $produs['marca']; ?></strong> respectand cele mai inalte stardande de calitate colaborand in permanenta cu furnizorul pentru a imbunatati serviciul oferit.</p>
+                        <p><strong>Termenul de livrare</strong> poate fi estimat in functie de disponibilitatea din stoc sau furnizor, dupa cum urmeaza:
+                            <ul id="produs">
+                                <li>Pentru Romania, termenul de livrare este de minim 1 zi de la confirmarea comenzii.</li>
+                                <li>Pentru Tarile din UE, timpul de livrare este de minim 2 zile de la confirmarea comenzii.</li>
+                                <li>Pentru Tarile din afara UE, timpul de livrare este de minim 3 zile de la confirmarea comenzii.</li>
+                            </ul>
+                        </p>
+                        <p><strong>Pretul de livrare</strong> se calculeaza in functie de greutate, marime si destinatie, asa cum prevad companiile de curierat, dupa cum urmeaza::
+                            <ul id="produs">
+                                <li>Fan Courier - doar pentru Romania</li>
+                                <li>DHL - livrare la toate zonele</li>
+                                <li>TNT - livrare la toate zonele</li>
+                                <li>DPD - livrare la toate zonele</li>
+                                <li>Posta Romana - livrare pentru toate zonele, costuri reduse dar timp mai mare de 15 de zile pentru receptia produselor.</li>
+                            </ul>
+                        </p>
+                        <p><strong>Modalitatile de plata</strong>  disponibile sunt:
+                            <ul id="produs">
+                                <li>Transfer Bancar</li>
+                                <li>PayPal</li>
+                                <li>Plata cu Card</li>
+                            </ul>
+                        </p>
+                        <p><strong>Timpul maxim de returnare</strong>  a produsului este de 5 zile. Produsele sunt in conformitate cu specificatiile prevazute de catre producator. Nu vom vinde produse contrafacute si care nu indeplinesc toate standardele corespunzatoare.
+                        </p>
+                        <p><strong>Recomandari</strong>:
+                            <ul id="produs">
+                                <li>Verificati de mai multe ori daca produsul indeplineste cerintele dumneavoastra.</li>
+                                <li>Asigurati-va ca dimensiunile sunt identice cu produsul comandat.</li>
+                                <li>Nu ezitati se ne contactati pentru orice nelamurire.</li>
+                            </ul>
+                        </p>
+                        <p class="right-align" style="margin-top: 10px;">Cu stima,</p>
+                        <p class="right-align"><a href="http://www.erulment.ro">Echipa erulment.ro</a></p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>

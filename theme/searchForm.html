@@ -1,0 +1,20 @@
+<div class="span12"><!-- SPAN12 SEARCH BAR ROW -->
+    <div class="hero-unit searchForm"><!-- HERO-UNIT FOR DIV INSIDE SEARCH ROW -->
+        <form class="form-search" id="formCautare" action="./cauta.html#results" method="get" onsubmit="cautareInUrl()">
+        <div class="input-append span12"><!-- INPUT-APEND DIV -->
+            <div class="btn-group pull-left span5">
+                <input name="q" type="text" autocomplete="on" placeholder="Cauta dupa numarul seriei sau brand" maxlength="30" pattern=".{3,}" title="3-20 caractere" class="search-query search-query-text span12 typeahead" <?php if(isset($sec)){echo "value=\"$sec\"";} ?> />
+            </div>
+            <div class="btn-group pull-left span4">
+                <input name="lungime_interioara" type="text" autocomplete="on" placeholder="Int.(mm)" maxlength="6" class="span3 search-query dimensionBar typeahead" <?php if(isset($sec_lungimeInt)){echo "value=\"$sec_lungimeInt\"";} ?> />
+                <input name="lungime_exterioara" type="text" autocomplete="on" placeholder="Ext.(mm)" maxlength="6" class="span3 search-query dimensionBar typeahead" <?php if(isset($sec_lungimeExt)){echo "value=\"$sec_lungimeExt\"";} ?> />
+                <input name="latime" type="text" autocomplete="on" placeholder="Lat.(mm)" maxlength="6" class="span3 search-query dimensionBar typeahead" <?php if(isset($sec_latime)){echo "value=\"$sec_latime\"";} ?> />
+                <!--<input name="unitate" style="background-color: inherit; border: 0; box-shadow: none" type="text" class="span3 search-query dimensionBar typeahead" autocomplete="on" value="(mm)" disabled="disabled" />-->
+            </div>
+            <div class="btn-group span2 pull-right">
+                <button type="submit" id="qsSearchButton" class="btn span12"><span>Cauta</span></button>
+            </div>
+        </div><!-- /INPUT-APEND DIV -->
+        </form>
+    </div><!-- /HERO-UNIT FOR DIV INSIDE SEARCH ROW -->
+</div> <!-- /SPAN12 SEARCH BAR ROW -->

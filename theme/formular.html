@@ -1,0 +1,85 @@
+            <div class="formPages pull-right">
+                <div class="despre">
+                <form action="./formular.html" method="post">
+                <table class="center-align table table-condensed table-responsive" id="content">
+                     <tbody>
+                        <tr>
+                            <td colspan="2">
+                                <h1 class="center-align" id="formular" style="margin: 0px auto;">Completati formularul si o gasim noi</h1>         
+                            </td>
+                        </tr>
+                        <tr id="pagination">
+                            <td class="right-align muted credit" colspan="2" style="padding-bottom: 5px; padding-right: 15px;">* campuri obligatorii</td>
+                        </tr>
+                        <tr id="pagination">
+                            <td class="right-align" id="firma" style="padding-right: 20px;">Seria<span class="muted credit">*</span></td>
+                            <td class="left-align">
+                            <?php 
+                            $extraSerie = 'placeholder="Numele seriei fara stoc"';
+                            if(isset($_GET['q'], $_GET['d'])){
+                                $dimensiuni = strip_tags(trim(filter_var($_GET['d'], FILTER_SANITIZE_STRING)));
+                                $secSerie = strip_tags(trim(filter_var($_GET['q'], FILTER_SANITIZE_STRING)));
+                                $extraSerie .= " value=\"---$secSerie--- $dimensiuni mm\"";
+                                }
+                            create_form_input('seria', 'text', $reg_errors, $extraSerie); 
+                            ?>
+                            </td>
+                        </tr>
+                                                <tr id="pagination">
+                            <td class="right-align" id="marca" style="padding-right: 20px;">Marca </td>
+                            <td class="left-align"><?php create_form_input('marca', 'text', $reg_errors, 'placeholder="Marca seriei fara stoc"'); ?></td>
+                        </tr>
+                        <tr id="pagination">
+                        <td colspan="2">
+                        <hr style="margin: 6px auto;"/>
+                        </td>
+                        </tr>
+                        <tr id="pagination">
+                            <td class="right-align" style="padding-right: 20px;">Persoana </td>
+                            <td class="left-align">
+                                <select name="persoana" id="persoana" style="width: 50%;">
+                                    <option value="juridica" class="center-align" selected="selected">Juridica</option>
+                                    <option value="fizica" class="center-align" id="juridica">Fizica</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="pagination">
+                            <td class="right-align" id="firma" style="padding-right: 20px;">Firma<span class="muted credit">*</span> </td>
+                            <td class="left-align"><?php create_form_input('firma', 'text', $reg_errors, 'placeholder="Doar persoane juridice"'); ?></td>
+                        </tr>
+                        <tr id="pagination">
+                            <td class="right-align" id="cif" style="padding-right: 20px;">C.I.F.<span class="muted credit">*</span></td>
+                            <td class="left-align"><?php create_form_input('cif', 'text', $reg_errors, 'placeholder="Doar persoane juridice"'); ?></td>
+                        </tr>
+                        <tr id="pagination">
+                            <td class="right-align" style="padding-right: 20px;">Nume<span class="muted credit">*</span> </td>
+                            <td class="left-align"><?php create_form_input('nume', 'text', $reg_errors, 'placeholder="Persoana de contact"'); ?></td>
+                        </tr>
+                        <tr id="pagination">
+                            <td class="right-align" style="padding-right: 20px;">Email<span class="muted credit">*</span> </td>
+                            <td class="left-align"><?php create_form_input('email', 'text', $reg_errors, 'placeholder="Aici vom trimite oferta"'); ?></td>
+                        </tr>
+                        <tr id="pagination">
+                            <td class="right-align" style="padding-right: 20px;">Telefon<span class="muted credit">*</span> </td>
+                            <td class="left-align"><?php create_form_input('telefon', 'text', $reg_errors, 'placeholder="Persoana de contact"'); ?></td>
+                        </tr>
+                        <tr id="pagination">
+                            <td class="right-align" style="padding-right: 20px;">Extra&nbsp;&nbsp;</td>
+                            <td class="left-align"><?php create_form_input('extra', 'textarea', $reg_errors, 'placeholder="Detalii suplimentare in vederea comenzii"'); ?></td>
+                        </tr>
+                        <tr id="pagination">
+                        <td colspan="2" style="padding-top: 15px; padding-bottom: 0px;">
+                        <a target="_blank" href="./termeni.html">Termeni si Conditii</a>&nbsp;&nbsp;
+                            <label style="display: inline-block; <?php if (array_key_exists('acord', $reg_errors)) {echo 'color: #f37575; font-weight: bold';} ?>">Sunt de acord* <input type="checkbox" style="width: 20px; height: 20px; padding: 0; margin:0; vertical-align: middle; position: relative; top: -1px; *overflow: hidden;" id="acord" name="acord" value="1"
+                            <?php if (isset($_POST['acord'])) echo ' checked'?>/></label></td></tr> 
+                        <tr id="pagination">
+                            <td colspan="2">
+                            <input type="hidden" name="cere_oferta" value="formular"/>
+                            <input type="submit" value="Trimite Cerere" class="btn" id="trimitComanda"/>
+                            </td>
+                        </tr>
+                     </tbody>
+                </table>
+                </form>
+                </div>
+            </div>    

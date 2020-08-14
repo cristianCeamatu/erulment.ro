@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/><![endif]-->
+    <!--[if lt IE 9]><script src="//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script><![endif]-->
+    
+    <title><?php // Use a default page title if one wasn't provided...
+	if (isset($page_title)) { 
+			echo $page_title; 
+	} else { 
+			$page_title = 'Rulmenti Romania | Catalog Comenzi Online si Distributie';
+            echo $page_title;
+	}
+	?></title>
+    <base href="https://erulment.ro/" />
+    <meta name="description" content="<?php if (isset($meta_desc)) { echo $meta_desc; } else { echo 'Comercializam cea mai mare gama de rulmenti de toate tipurile, la orice dimensiune si pentru toate domeniile de aplicare. Catalog online de comenzi rulmenti.';} ?>" />
+    <meta name="keywords" content="<?php if (isset($meta_keys)) { echo $meta_keys; } else { echo 'rulment,rulmenti,ace rulment,bile rulment,role rulment,ace,bile,role,bila otel,ac otel,rola otel,bile inox,ace inox,role inox';} ?>" />
+    <meta property="og:title" content="<?php echo $page_title; ?>" />
+    <meta property="og:site_name" content="<?php echo $page_title; ?>" />
+    <meta property="og:url" content="https://www.erulment.ro/" />
+    <meta property="og:description" content="<?php if (isset($meta_desc)) { echo $meta_desc; } else { echo 'Comercializam cea mai mare gama de rulmenti de toate tipurile, la orice dimensiune si pentru toate domeniile de aplicare. Catalog online de comenzi rulmenti.';} ?>" />        
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.erulment.ro/theme/images/erulmentLogo.png" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="130" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="<?php echo $page_title; ?>" />
+    <meta property="twitter:description" content="<?php if (isset($meta_desc)) { echo $meta_desc; } else { echo 'Comercializam cea mai mare gama de rulmenti de toate tipurile, la orice dimensiune si pentru toate domeniile de aplicare. Catalog online de comenzi rulmenti.';} ?>" />
+    <meta property="twitter:image" content="https://www.erulment.ro/theme/images/produsLogo.png" />
+    <meta property="twitter:image:width" content="300" />
+    <meta property="twitter:image:height" content="320" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="favicon.png" /> 
+    <meta property="og:locale" content="ro_RO" />
+    <meta property="og:title" content="<?php echo $page_title; ?>" />
+    <meta property="og:description" content="<?php if (isset($meta_desc)) { echo $meta_desc; } else { echo 'Comercializam cea mai mare gama de rulmenti de toate tipurile, la orice dimensiune si pentru toate domeniile de aplicare. Catalog online de comenzi rulmenti.';} ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="<?php echo $page_title; ?>" />
+    <meta property="og:url" content="https://www.erulment.ro/" />
+    <meta property="og:image" content="https://www.erulment.ro/theme/images/erulmentLogo.png" />
+    <meta name="twitter:card" content="product" />
+    <meta name="twitter:description" content="<?php if (isset($meta_desc)) { echo $meta_desc; } else { echo 'Comercializam cea mai mare gama de rulmenti de toate tipurile, la orice dimensiune si pentru toate domeniile de aplicare. Catalog online de comenzi rulmenti.';} ?>"/>
+    <meta name="twitter:title" content="<?php echo $page_title; ?>" />
+    <meta name="twitter:site" content="@erulment" />
+    <meta name="twitter:domain" content="erulment.ro" />
+    <meta name="twitter:image:src" content="https://www.erulment.ro/theme/images/erulmentLogo.png" />
+    <meta name="twitter:creator" content="@erulment" />
+    <meta name="twitter:label1" content="Rulmenti" />
+    <meta name="twitter:data1" content="Rulmenti cu bile" />
+    <meta name="twitter:data2" content="Rulmenti cu role" />
+    <meta name="twitter:data3" content="Rulmenti cu ace" />
+    <meta name="dc.language" content="RO" />
+    <meta name="dc.source" content="http://www.erulment.ro/" />
+    <meta name="dc.relation" content="http://www.erulment.ro/" />
+    <meta name="dc.title" content="<?php echo $page_title; ?>" />
+    <meta name="dc.keywords" content="<?php if (isset($meta_keys)) { echo $meta_keys; } else { echo 'rulment,rulmenti,ace rulment,bile rulment,role rulment,ace,bile,role,bila otel,ac otel,rola otel,bile inox,ace inox,role inox';} ?>" />
+    <meta name="dc.subject" content="erulment.ro" />
+    <meta name="dc.coverage" content="World" />
+    <meta name="dc.description" content="<?php if (isset($meta_desc)) { echo $meta_desc; } else { echo 'Comercializam cea mai mare gama de rulmenti de toate tipurile, la orice dimensiune si pentru toate domeniile de aplicare. Catalog online de comenzi rulmenti.';} ?>" />
+    <meta name="dc.format" content="text/html" />
+    <meta name="dc.identifier" content="https://www.erulment.ro/" />
+    <meta name="DC.creator" content="cristian.adydev.com" />
+    <meta name="dc.publisher" content="cristian.adydev.com" />
+    <meta name="dc.type" content="Text/Image" />
+    <meta name="generator" content="adydev.com" />    
+    <meta name="author" content="cristian.adydev.com" />
+    <meta name="google-site-verification" content="Y4JA7UZKe9BxvEqLk5Jg9cr11-4no35tAASyYDHhAWM" />
+    <meta name="msvalidate.01" content="613EA4DADAC66DC9181E747B639911E6" />
+    <meta name="alexaVerifyID" content="Zcbq-zLZ-ZzEd9JOD3JvuBvFT44" />
+    <meta name="wot-verification" content="b0b6b709c1db9ec8ed58"/>
+    <meta name="norton-safeweb-site-verification" content="25q237mvcoxdd57qcdh-1kx-3erwgajvzpmb1hu7pzg8bujdm04xdybr31d2hbcd3o24b8nh35639s4mc161ywmc1g-ro21kem-aqpx07ysmabo93i1z9ypzftl7w1g4" />
+    <meta name='robots' content='<?php if(isset($metaRobots)) echo $metaRobots; else echo "index, nofollow";?>'/>
+    <meta name="revisit-after" content="30 days" />
+    <meta name="DC.title" content="erulment.ro" />
+    <meta name="geo.region" content="RO-CT" />
+    <meta name="geo.placename" content="Constanta" />
+    <meta name="geo.position" content="44.197099;28.631725" />
+    <meta name="ICBM" content="44.197099, 28.631725" />
+    <meta name="language" content="ro" />
+    <meta name="designer" content="cristian.adydev.com" />
+    <meta name="abstract" content="Catalog online de comenzi rulmenti" />
+    <!--
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <link href="./theme/css/base.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+    <script src="theme/js/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+  <![endif]-->
+  <!--[if lt IE 9]><div class="old-browser">You are using an old browser. Please <a
+    href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">upgrade to a newer version</a> or <a
+    href="http://browsehappy.com/">try a different browser</a>.</div>
+  <![endif]-->
+<?php include_once("./incl/analyticstracking.php") ?>
+    <header>
+    <div class="navbar navbar-top">
+    <!--<div class="topImage">Asistenta Comenzi: Tel. <span style="font-weight: bold">0751.244.344</span> de luni pana vineri intre orele 9:00 - 21:00 <a href="http://wwp.greenwichmeantime.com/time-zone/europe/european-union/romania/">GMT+2</a></div>-->
+        <div class="navbar-inner">
+            <div class="row-fluid header">
+            <div class="imageHeader"></div>
+            </div>
+            <div class="container-fluid">
+            
+                <div class="row-fluid">
+                    <div class="span4 logo">
+                        <a href="http://erulment.ro" title="Home">
+                            <img width="280" height="80" src="./theme/images/erulmentLogo.png" alt="Catalog online de rulmenti" />
+                        </a>
+                    </div>
+                    <div class="groupIconLogo">
+                    <div class="span3 IconLogo">
+                        <img src="./theme/images/iconRulment.png" alt="Icoana Stoc" width="45" height="45" />
+                        <dl>
+                            <dt>Adauga produsele</dt>
+<?php
+if ($dbc) {
+// GET THE NUMBER OF ITEMS 
+$numar_randuri = mysqli_query($dbc, "CALL get_total_rows()");
+$data = mysqli_fetch_array($numar_randuri, MYSQLI_ASSOC);
+$num_randuri = $data['total'];
+
+//FOR THE CART NUMBER AND MAIN CART CONTENTS
+mysqli_next_result($dbc);
+$r_cart = mysqli_query($dbc, "CALL get_cart_contents('$uid')");
+$rezultate_cart = mysqli_num_rows($r_cart);
+}
+?>
+                            <dd><strong><?php if ($num_randuri) echo number_format($num_randuri, 0, ",", "."); else echo "336.000"; ?></strong> produse in stoc<br />(actualizat 20.01.2020)</dd>
+                        </dl>
+                    </div>
+                    <div class="span3 IconLogo middleIcon">
+                        <img src="./theme/images/iconRulment6.png" alt="Icoana Cerere" width="45" height="45" />
+                        <dl>
+                            <dt>Solicita oferta</dt>
+                            <dd>pentru lista de produse</dd>
+                        </dl>
+                    </div>
+                    <div class="span3 IconLogo">
+                        <img src="./theme/images/iconRulment2.png" alt="Icoana Livrare" width="45" height="45" />
+                        <dl>
+                            <dt>Livrare imediata</dt>
+                            <dd>in max 14 zile</dd>
+                        </dl>
+                    </div>
+                </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="menuButton">
+                        <ul class="nav pull-left mobile">
+                        <li>
+                        <a href=""><span class="meniuText">&nbsp;MENIU&nbsp;</span><span class="icon-menu3"></span></a>
+                        </li></ul>
+                    </div>
+                    <div id="nav">
+                    <ul class="nav hideItems">
+                        <li><a href="index.html" class="active">Acasa</a></li>
+                                <!--<li><a href="despre.html">Despre Noi</a></li>
+                                <li><a href="./furnizori.php">Furnizori</a></li>               
+                                <li><a href="/">Tipuri de rulmenti</a></li>
+                                <li><a href="termeni.html">Termeni si conditii</a></li>
+                                <li><a href="contact.html">Contact</a></li>-->
+                        <li><a href="informatii.html#content">Informatii</a></li>
+                        <li><a href="formular.html#content">Nu gasiti seria?</a></li>
+                    </ul>
+                    </div>
+                    <ul class="nav pull-right mobile">
+                        <li id="skype"><a href="skype:magadyla?chat">Skype <img src="./theme/images/skypeLogo.png" width="25" height="25" alt="skype mini logo"/></a></li>
+                        <li><a href="./cauta.html#cos">Cos <img src="./theme/images/cartMiniIcon.png" width="25" height="25" alt="cart mini logo"/><span class="navCartNumber"><?php echo $rezultate_cart; ?></span></a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+                <div class="mobileMenu center-align hidden">
+                    <ul>
+                        <li><a href="index.html" class="active">Acasa</a></li>
+                                <!--<li><a href="despre.html">Despre Noi</a></li>
+                                <li><a href="./furnizori.php">Furnizori</a></li>               
+                                <li><a href="/">Tipuri de rulmenti</a></li>
+                                <li><a href="termeni.html">Termeni si conditii</a></li>
+                                <li><a href="contact.html">Contact</a></li>-->
+                        <li><a href="informatii.html#content">Informatii</a></li>
+                        <li><a href="formular.html#content">Nu gasiti seria?</a></li>
+                        <li><a href="contact.html#content">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
