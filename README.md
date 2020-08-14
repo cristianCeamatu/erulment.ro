@@ -1,7 +1,7 @@
 ![Hireable](https://cdn.rawgit.com/hiendv/hireable/master/styles/flat/yes.svg) 
 # ![Laravel logo](./.github/php-logo.png)
 
-> ### Bearings online catalog used in production by a client, built using Cart functionality, advanced PHP funtional programming patterns and objects, Jquery, HTML/SCC, MySQL utilities. Clients can browse through 18000 bearings and request price offers. Both the owner and the client receive an email notification with the cart details. The website is mobile responsive.
+> ### Bearings online catalog used in production by client, built using Cart functionality, advanced PHP funtional programming patterns and objects, Jquery, HTML/CSS, MySQL utilities. Clients can browse through 18000 bearings by dimensions and name, request price offers. Both the owner and the client receive an email notification with the cart details. The website is mobile responsive.
 
 ----------
 
@@ -10,7 +10,8 @@
 ![screenshot](./.github/app-screenshot.png)
 
 
-## The website has cart and subscribe features, available in Romanian. Live version Demo:
+## The website has cart and subscribe features, available in Romanian.
+## Live version Demo:
 
 [Romanian version Link](https://www.erulment.ro)
 
@@ -45,13 +46,13 @@ Switch to the repo folder
 
     `cd erulment.ro`
 
-Setup your database and update the details in the file located at:
+Add your database and email account details in the file located at:
 
     `incl/config.inc.php`
 
 Start XAMPP or your preferred PHP server
 
-    Navigate to `http://localhost/erulment/` (for XAMPP users, check your PORT for other apps)
+    Navigate to `http://localhost/erulment/` (only for XAMPP users, check your PORT for other apps)
 
 ## Authors
 
