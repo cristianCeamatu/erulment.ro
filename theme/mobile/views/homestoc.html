@@ -1,0 +1,57 @@
+            <div class="span13 pull-left">
+            <table class="table table-condensed table-hover table-responsive">
+            <tbody>
+            <!-- change 15 if change items per page -->
+            <tr id="pagination"><td style="width= 100%; padding-bottom: 14px" class="center-align muted credit creditfooter">STOC: Aproximativ <?php if ($num_randuri) echo number_format($num_randuri, 0, ",", "."); else echo "336.000"; ?> (de) rezultate (<?php echo ceil($num_randuri/15) ?> de pagini)</td></tr>
+            </tbody>
+            </table>
+                        <table class="table table-condensed table-hover table-responsive">
+                        <thead>
+                            <tr>
+                                <th style="width=20%" class="left-align">Rulment</th>
+                                <th style="width=5%" class="center-align">Marca</th>
+                                <th style="width=5%" class="center-align">Dimensiune(mm)</th>
+                                <th style="width=5%" class="center-align">Cant.</th>
+                                <th style="width=15%" class="center-align"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+<?php
+ if ($dbc) {    
+    // http://www.catchmyfame.com/2007/07/28/finally-the-simple-pagination-class/comment-page-10/
+    require('../../incl/paginator.class.2.php');
+    // CREATE PAGES PAGINATOR $num_randuri from head
+    $pages = new Paginator;
+    $pages->items_total = $num_randuri;
+    $pages->mid_range = 9;
+    $pages->paginate(); 
+/*$query = "SELECT * FROM `produstest` LEFT JOIN marcatest ON produstest.id_marca = marcatest.id_marca ORDER BY nume ASC $pages->limit";
+    $query = "SELECT produs.nume AS rulment, marca.nume AS marca, produs.id_produs, CONCAT_WS(\"x\", produs.interior, produs.exterior, produs.latime) AS dimensiune
+                  FROM produs 
+                  LEFT JOIN marca ON produs.id_marca = marca.id_marca
+                  ORDER BY rulment ASC LIMIT $pages->limit,$pages->items_per_page";*/
+    mysqli_next_result($dbc);
+    $result = mysqli_query($dbc, "CALL get_stoc($pages->limit, $pages->items_per_page)");
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
+    <form action="" method="post" style="padding: 0px;">
+    <tr style="width: 100%;">
+        <td class="left-align"  style="width: 40%"><a href="./<?php echo $row['id_produs'] ?>-rulment-<?php echo str_replace(' ', '-', (str_replace('/', '-', $row['rulment']))).'-'.$row['marca']; ?>.html"><?php echo $row['rulment']; ?></a></td>
+        <td class="center-align"  style="width: 15%"><?php echo $row['marca'] ?></td>
+        <td class="center-align dimensiune"  style="width: 15%"><?php echo $row['dimensiune'] ?></td>
+        <td class="center-align"  style="width: 15%"><input name="cantitate" type="text" autocomplete="off" placeholder="1" maxlength="3" size="3" class="cantCart" />
+        </td>
+        <td class="center-align"  style="width: 15%">
+                    <span><input type="hidden" name="id_produs" value="<?php echo $row['id_produs']; ?>" /></span>
+                    <span><input type="hidden" name="adauga" value="1"/></span>
+                    <span><input type="submit" value="Adauga" class="btn btn-success buttonAdauga" /></span></td>
+    </tr>
+    </form>
+<?php
+        
+        }// END OF WHILE LOOP
+    }// END OF if $dbc STATEMENT
+?>
+    <tr id="pagination"><td colspan="5" class="center-align" id="pagination"><ul class="pagination pagination-sm"><?php echo $pages->display_pages(); ?></ul></td></tr>
+                        </tbody>
+                </table>
+            </div><!--/span13-->

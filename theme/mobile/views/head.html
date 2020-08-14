@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <link rel="alternate" href="http://erulment.ro" hreflang="ro-ro" />
+    <meta name="language" content="ro" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <!--
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <link href="http://erulment.ro/theme/css/base.min.css" rel="stylesheet" />
+    <title><?php // Use a default page title if one wasn't provided...
+	if (isset($page_title)) { 
+			echo $page_title; 
+	} else { 
+			$page_title = 'Rulmenti Romania | Catalog Comenzi Online si Distributie';
+            echo $page_title;
+	}
+	?></title>
+    <meta name="author" content="cristian.devmm.net" />
+    <meta name="designer" content="cristian.devmm.net" />
+    <meta name="description" content="<?php if (isset($meta_desc)) { echo $meta_desc; } else { echo 'Comercializam cea mai mare gama de rulmenti de toate tipurile, la orice dimensiune si pentru toate domeniile de aplicare. Catalog online de comenzi rulmenti.';} ?>" />
+    <meta name="keywords" content="<?php if (isset($meta_keys)) { echo $meta_keys; } else { echo 'rulment,rulmenti,ace rulment,bile rulment,role rulment,ace,bile,role,bila otel,ac otel,rola otel,bile inox,ace inox,role inox';} ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<?php echo $page_title; ?>" />
+    <meta property="og:description" content="<?php if (isset($meta_desc)) { echo $meta_desc; } else { echo 'Comercializam cea mai mare gama de rulmenti de toate tipurile, la orice dimensiune si pentru toate domeniile de aplicare. Catalog online de comenzi rulmenti.';} ?>" />
+    <meta property="og:keywords" content="<?php if (isset($meta_keys)) { echo $meta_keys; } else { echo 'rulment,rulmenti,ace rulment,bile rulment,role rulment,ace,bile,role,bila otel,ac otel,rola otel,bile inox,ace inox,role inox';} ?>" />
+    <meta property="og:url" content="http://www.erulment.ro/" />
+    <meta property="og:image" content="http://www.erulment.ro/theme/images/rulmentLogo.ico" />
+    <meta property="og:site_name" content="<?php  echo $page_title; ?>" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name='robots' content='index, follow'/>
+    <meta name="generator" content="magadyla.ro" />
+    <meta name="google-site-verification" content="Y4JA7UZKe9BxvEqLk5Jg9cr11-4no35tAASyYDHhAWM" />
+    <!--
+    <meta name="msvalidate.01" content="C72A1A96BF88F856142232C08643BB99" />
+    <meta name="alexaVerifyID" content="89xigzMhDYH1pB8kWfftsQ_Fp4E" />
+    <meta name="norton-safeweb-site-verification" content="0mfm2soet6wxn4yzs61mqksqwz3gmc-2pllobtfsemr7ovwbrm681155x2w2hp1udn33wu69wf4zrdw5mg2lniv3x4fvgcxl355443r2cu4yhm7tfk1yrbhubbfvtlv5" />-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" async="async"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.20/jquery-ui.min.js" async="async"></script>
+    <!--<script type="text/javascript">
+    /*if (screen.width > 800) {
+        window.location = "http://erulment.ro";
+    }*/
+    </script>-->
+  </head>
+  <body>
+<?php include_once("../../incl/analyticstracking.php") ?>
+    <div class="navbar navbar-top">
+        <div class="topImage">Asistenta Comenzi: Tel. <span style="font-weight: bold">0751.244.344</span> de luni pana vineri intre orele 9:00 - 21:00 <a href="http://wwp.greenwichmeantime.com/time-zone/europe/european-union/romania/">GMT+2</a></div>
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span4 logo">
+                        <a href="http://erulment.ro" title="Home">
+                            <img width="280" height="80" src="/home/xeayddtt/theme/images/erulmentLogo.png" alt="Logo erulment.ro" />
+                        </a>
+                    </div>
+                    <div class="span3 IconLogo">
+                        <img style="float: left;" src="../../theme/images/navStocLogo.png" alt="Icoana Stoc" width="45" height="45" />
+                        <dl>
+                            <dt>Alege produsele dorite</dt>
+<?php
+if ($dbc) {
+// GET THE NUMBER OF ITEMS 
+$numar_randuri = mysqli_query($dbc, "CALL get_total_rows()");
+$data = mysqli_fetch_array($numar_randuri, MYSQLI_ASSOC);
+$num_randuri = $data['total'];
+}
+?>
+                            <dd><strong><?php if ($num_randuri) echo number_format($num_randuri, 0, ",", "."); else echo "336.000"; ?></strong> produse in stoc<br />(actualizat 03.03.2016)</dd>
+                        </dl>
+                    </div>
+                    <div class="span3 IconLogo">
+                        <img style="float: left;" src="../../theme/images/navCerereLogo.png" alt="Icoana Cerere" width="45" height="45" />
+                        <dl>
+                            <dt>Cere oferta pret</dt>
+                            <dd>pentru lista de produse</dd>
+                        </dl>
+                    </div>
+                    <div class="span2 IconLogo">
+                        <img style="float: left;" src="../../theme/images/navLivrareLogo.png" alt="Icoana Livrare" width="45" height="45" />
+
+                        <dl>
+                            <dt>Livram</dt>
+                            <dd>in max 14 zile</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <ul class="nav">
+                        <li><a href="../../index.html">Acasa</a></li>
+                        <li><a href="../../despre.html">Despre Noi</a></li>
+                        <!--<li><a href="../../furnizori.php">Furnizori</a></li>               
+                        <li><a href="/">Tipuri de rulmenti</a></li>-->
+                        <li><a href="../../termeni.html">Termeni si conditii</a></li>
+                        <li><a href="../../contact.html">Contact</a></li>
+                        <li><a href="../../formular.html">Nu gasiti seria?</a></li>
+                        
+                    </ul>
+
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+
+
+    </div>

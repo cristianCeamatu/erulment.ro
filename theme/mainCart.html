@@ -1,0 +1,103 @@
+<!-- mainCART -->
+             <div class="span14 pull-right" style="padding-top: 0;">
+                
+                    <h2 id="cos" class="center-align" style="font-weight: bold; padding-bottom: 0; margin-bottom: 0;">
+                    <img id="cartLogo" src="./theme/images/cartLogo.png" alt="Icoana Cosul meu" width="45" height="40" />Cosul meu
+                    </h2>
+                    <table class="table table-condensed table-hover table-responsive" style="border: none;">
+                     <tbody>
+                            <tr class="muted credit noHover">
+                                <th class="left-align">Rulment</th>
+                                <th class="center-align">Marca</th>
+                                <th class="center-align">Cant.</th>
+                                <th class="center-align"></th>
+                            </tr>
+                       
+<?php
+while ($cos = mysqli_fetch_array($r_cart, MYSQLI_ASSOC)) { ?>
+                            <tr id="cart">
+                                <td class="left-align"><a href="./produs.php?ip=<?php echo $cos['id_produs'] ?>"><?php echo $cos['rulment'] . "</a><br /><span class=\"muted credit\">" . $cos['dimensiune'] . "</span>"; ?></td>
+                                <td class="center-align"><?php echo $cos['furnizor']; ?></td>
+                                <td style="width=5%" class="center-align"><?php echo $cos['cant']; ?></td>
+                                <td class="center-align">
+                                    <form action="" method="post">
+                                        <input type="hidden" name="remove_rulment" value="<?php echo $cos['id_produs'] ?>"/>
+                                        <button type="submit" name="remove_from_cart" class="btn">X</button>
+                                    </form>
+                                </td>
+                            </tr>
+<?php
+}// END OF WHILE LOOP, DISPLAYNG CART CONTENTS
+?>
+                            <tr class="noHover">
+                                <td class="center-align" colspan="4" style="padding-top: 20px;">
+                                    <button type="button" style="display: inline-block; margin-right: 5px;" class="btn" id="cereOferta">Cere Oferta</button>
+                                    <!--<form style="display: inline-block;" action="./finalizare_comanda.php" method="post">
+                                        <input type="submit" name="cerere_avansata" class="btn" value="Cerere Avansata"/>
+                                    </form>-->
+                                </td>
+                            </tr>
+                            
+<?php 
+require_once('./incl/form_functions.inc.php');
+?>                           
+                            <tr id="formularCere" class="cereOferta">
+                                <td colspan="4" style="padding-top: 20px;">
+                                    <form action="" method="post">
+                                    <table class="center-align table-condensed table-responsive" id="tableForm">
+                                                <h1 class="center-align" style="margin-bottom: 0;padding-bottom: 0;">Cum va putem contacta?</h1>
+                                        <tr id="pagination">
+                                            <td class="right-align muted credit" colspan="2" style="padding-bottom: 5px; padding-right: 15px;">* campuri obligatorii</td>
+                                        </tr>
+                                        <tr id="pagination">
+                                        <th class="right-align" style="padding-right: 20px;">Persoana </th>
+                                        <td class="left-align" style="padding-right: 20px;">
+                                            <select name="persoana" id="persoana" style="width: 50%;">
+                                                <option value="juridica" class="center-align" selected="selected">Juridica</option>
+                                                <option value="fizica" class="center-align" id="juridica">Fizica</option>
+                                            </select>
+                                        </td>
+                                        </tr>
+                                        <tr id="pagination">
+                                            <th class="right-align" id="firma" style="padding-right: 20px;">Firma<span class="muted credit">*</span> </th>
+                                            <td class="left-align" style="padding-right: 20px;"><?php create_form_input('firma', 'text', $reg_errors, 'placeholder="Doar persoane juridice"'); ?></td>
+                                        </tr>
+                                        <tr id="pagination">
+                                            <th class="right-align" id="cif" style="padding-right: 20px;">C.I.F.<span class="muted credit">*</span></th>
+                                            <td class="left-align" style="padding-right: 20px;"><?php create_form_input('cif', 'text', $reg_errors, 'placeholder="Doar persoane juridice"'); ?></td>
+                                        </tr>
+                                        <tr id="pagination">
+                                            <th class="right-align" style="padding-right: 20px;">Nume<span class="muted credit">*</span> </th>
+                                            <td class="left-align" style="padding-right: 20px;"><?php create_form_input('nume', 'text', $reg_errors, 'placeholder="Persoana de contact"'); ?></td>
+                                        </tr>
+                                        <tr id="pagination">
+                                            <th class="right-align" style="padding-right: 20px;">Email<span class="muted credit">*</span> </th>
+                                            <td class="left-align" style="padding-right: 20px;"><?php create_form_input('email', 'text', $reg_errors, 'placeholder="Aici vom trimite oferta"'); ?></td>
+                                        </tr>
+                                        <tr id="pagination">
+                                            <th class="right-align" style="padding-right: 20px;">Telefon<span class="muted credit">*</span> </th>
+                                            <td class="left-align" style="padding-right: 20px;"><?php create_form_input('telefon', 'text', $reg_errors, 'placeholder="Persoana de contact"'); ?></td>
+                                        </tr>
+                                        <tr id="pagination">
+                                            <th class="right-align" style="padding-right: 20px;">Extra </th>
+                                            <td class="left-align" style="padding-right: 20px;"><?php create_form_input('extra', 'textarea', $reg_errors, 'placeholder="Detalii suplimentare in vederea comenzii"'); ?></td>
+                                        </tr>
+                                        <tr id="pagination">
+                                            <td colspan="2" style="padding-top: 15px; padding-bottom: 0px;">
+                                            <a target="_blank" href="./termeni.html">Termeni si Conditii</a>&nbsp;&nbsp;
+                                            <label style="display: inline-block; <?php if (array_key_exists('acord', $reg_errors)) {echo 'color: #f37575; font-weight: bold';} ?>">Sunt de acord* <input type="checkbox" style="width: 20px; height: 20px; padding: 0; margin:0; vertical-align: middle; position: relative; top: -1px; *overflow: hidden;" id="acord" name="acord" value="1"
+                                            <?php if (isset($_POST['acord'])) echo ' checked'?>/></label></td></tr> 
+                                        <tr id="pagination">
+                                            <td colspan="2">
+                                                <input type="hidden" name="cere_oferta" value="cos"/>
+                                                <input type="submit" style="width: 60%;" value="Trimite Cerere" class="btn" id="trimitComanda"/>
+                                            </td>
+                                        </tr>
+                                        </table>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                      </table>
+        </div>
+<!-- END mainCART -->

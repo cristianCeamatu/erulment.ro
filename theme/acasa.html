@@ -1,0 +1,109 @@
+   <div class="mainContent">
+        <div class="homeImage">
+        <img src="theme/images/homeContent2.png" alt="Main Content" width="100%" height="auto" />
+        </div>
+        <div class="lista">
+        <h1 id="mainHeading">Oferim spre distributie o gama variata de rulmenti</h1>
+        <p>
+        <ul id="rulmenti">
+        <li><span class="listHead">Rulmenti radiali</span>
+        <ul>
+        <li>Rulmenti radiali cu bile</li>
+        <li>Rulmenti radiali oscilanti cu bile</li>
+        <li>Rulmenti radiali radiali-axiali cu bile</li>
+        <li>Rulmenti radiali radiali-axiali cu role conice</li>
+        <li>Rulmenti radiali cu role cilindrice</li>
+        <li>Rulmenti radiali cu ace</li>
+        <li>Rulmenti radiali oscilanti cu role butoi pe doua randuri</li>
+        </ul>
+    </li>
+    <li><span class="listHead">Rulmenti axiali</span>
+        <ul>
+        <li>Rulmenti axiali cu bile</li>
+        <li>Rulmenti axiali cu role</li>
+        <li>Rulmenti axiali-radiali cu bile</li>
+        </ul>
+    </li>
+</ul>
+        </p>
+        <h2>Marci Recomandate
+        <div class="pozeFurnizori">
+        <img src="theme/images/marca/SKF.png" alt="SKF"  />
+        <img src="theme/images/marca/ABC.png" alt="SKF"  />
+        <img src="theme/images/marca/AEC.png" alt="SKF"  />
+        <img src="theme/images/marca/ACB.png" alt="SKF"  />
+        <img src="theme/images/marca/AKE.png" alt="SKF"  />
+        <img src="theme/images/marca/APB.png" alt="SKF"  />
+        <img src="theme/images/marca/BARDEN.png" alt="SKF"  />
+        <img src="theme/images/marca/BDR.png" alt="SKF"  />
+        <img src="theme/images/marca/BECO.png" alt="SKF"  />
+        <img src="theme/images/marca/BL.png" alt="SKF"  />
+        <img src="theme/images/marca/BMT.png" alt="SKF"  />
+        <img src="theme/images/marca/BOWER.png" alt="SKF"  />
+        <img src="theme/images/marca/BW.png" alt="SKF"  />
+        <img src="theme/images/marca/CONSOLIDATED.png" alt="SKF"  />
+        <img src="theme/images/marca/D-TEC.png" alt="SKF"  />
+        </div>
+        </h2>
+        </div>
+        <div class="aside">
+        <h2 class="center-align" id="formular">Nu gasiti seria?</h2>
+        <p>O gasim noi pentru dumneavostra. Completati formularul de mai jos cu specificatiile rulmentului, de restul ne ocupam noi</p>
+        
+        <div id="formularSerie">
+        <h3>Formular Cerere</h3>
+<?php 
+require_once('./incl/form_functions.inc.php');
+?>      
+        <div class="formularSerie">
+        <p class="muted credit right-align">* campuri obligatorii</p>
+            <div class="formularLeft">
+            <ul>
+            <li>Seria<span class="muted credit">*</li>
+            <li class="marca">Marca</li>
+            <li>&nbsp;</li>
+            <li>Persoana</li>
+            <li>Firma<span class="muted credit">*</li>
+            <li>C.I.F.<span class="muted credit">*</li>
+            <li>Nume<span class="muted credit">*</li>
+            <li>Email<span class="muted credit">*</li>
+            <li>Telefon<span class="muted credit">*</li>
+            <li>Extra</li>
+            </ul>
+            </div>
+            <div class="formularRight">
+            <form method="post" action="#formular">
+            <ul>
+            <li><?php 
+                            $extraSerie = 'placeholder="Numele seriei fara stoc"  maxlength="40"';
+                            if(isset($_GET['q'], $_GET['d'])){
+                                $dimensiuni = strip_tags(trim(filter_var($_GET['d'], FILTER_SANITIZE_STRING)));
+                                $secSerie = strip_tags(trim(filter_var($_GET['q'], FILTER_SANITIZE_STRING)));
+                                $extraSerie .= " value=\"---$secSerie--- $dimensiuni mm\"";
+                                }
+                            create_form_input('seria', 'text', $reg_errors, $extraSerie); 
+            ?></li>
+            <li class="marca"><?php create_form_input('marca', 'text', $reg_errors, 'placeholder="Marca seriei fara stoc"  maxlength="20"'); ?></li>
+            <li>&nbsp;</li>
+            <li><select name="persoana" id="persoana">
+                                    <option value="juridica" selected="selected">Juridica</option>
+                                    <option value="fizica" id="juridica">Fizica</option>
+            </select></li>
+            <li><?php create_form_input('firma', 'text', $reg_errors, 'placeholder="Doar persoane juridice" maxlength="40"'); ?></li>
+            <li><?php create_form_input('cif', 'text', $reg_errors, 'placeholder="Doar persoane juridice"'); ?></li>
+            <li><?php create_form_input('nume', 'text', $reg_errors, 'placeholder="Persoana de contact"  maxlength="40"'); ?></li>
+            <li><?php create_form_input('email', 'text', $reg_errors, 'placeholder="Aici vom trimite oferta"  maxlength="40"'); ?></li>
+            <li><?php create_form_input('telefon', 'text', $reg_errors, 'placeholder="Persoana de contact"  maxlength="20"'); ?></li>
+            <li><?php create_form_input('extra', 'textarea', $reg_errors, 'placeholder="Detalii suplimentare in vederea comenzii"  maxlength="1600"'); ?></li>
+            </ul>
+            </div>
+            <p id="termeni"><a target="_blank" href="./termeni.html">Termeni si Conditii</a>&nbsp;&nbsp;
+            <label style="display: inline-block; <?php if (array_key_exists('acord', $reg_errors)) {echo 'color: #f37575; font-weight: bold';} ?>">Sunt de acord* <input type="checkbox" style="width: 20px; height: 20px; padding: 0; margin:0; vertical-align: middle; position: relative; top: -1px; *overflow: hidden;" id="acord" name="acord" value="1"
+            <?php if (isset($_POST['acord'])) echo ' checked'?>/></label></p>
+            <p><input type="hidden" name="cere_oferta" value="formular"/>
+                <input type="submit" value="Trimite Cerere" class="btn" id="trimitComanda"/></p>
+            </form>
+        </div>        
+        </div>
+        </div>
+</div>
