@@ -1,7 +1,7 @@
 ![Hireable](https://cdn.rawgit.com/hiendv/hireable/master/styles/flat/yes.svg) 
 # ![Laravel logo](./.github/php-logo.png)
 
-> ### Bearings online catalog used in production by client, built using Cart functionality, advanced PHP funtional programming patterns and objects, Jquery, HTML/CSS, MySQL utilities. Clients can browse through 18000 bearings and request price offers. Both the owner and the client receive an email notification with the cart details. The website is mobile responsive.
+> ### Bearings online catalog used in production by client, built using Cart functionality, advanced PHP funtional programming patterns and objects, Jquery, HTML/CSS, MySQL utilities. Clients can browse through 18000 bearings by dimensions and name, request price offers. Both the owner and the client receive an email notification with the cart details. The website is mobile responsive.
 
 ----------
 
