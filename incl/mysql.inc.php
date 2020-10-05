@@ -9,10 +9,10 @@
 */
 
 // Set the database access information as constants:
-DEFINE ('DB_USER', 'xeayddtt_cristi');
-DEFINE ('DB_PASSWORD', 'pin780juke031');
-DEFINE ('DB_HOST', 'localhost');
-DEFINE ('DB_NAME', 'xeayddtt_erulment');
+DEFINE ('DB_USER', 'example');
+DEFINE ('DB_PASSWORD', 'example');
+DEFINE ('DB_HOST', 'example');
+DEFINE ('DB_NAME', 'example');
 
 // Make the connection:
 $dbc = mysqli_connect (DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
